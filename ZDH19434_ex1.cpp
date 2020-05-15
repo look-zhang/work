@@ -1,19 +1,19 @@
-//ÕâÀïµÄ#include "stdafx.h"µ±vs°æ±¾½ÏĞÂÊ±»áÏÔÊ¾ÎŞ·¨´ò¿ªÔ´ÎÄ¼ş¿ÉÔÚµ÷ÊÔ/ÊôĞÔ/£¨c/c++£©/³£¹æ/¸½¼Ó°üº¬Ä¿Â¼ºó¼ÓÉÏ$(ProjectDir)
-//È»ºó½«£¨c/c++£©ÄÚµÄÔ¤±àÒëÍ·/Ô¤±àÒëÍ·¸ÄÎª£º²»Ê¹ÓÃÔ¤±àÒëÍ·£¬È»ºó½«#includ "stdafx.h"È¥µô¡£
+//è¿™é‡Œçš„#include "stdafx.h"å½“vsç‰ˆæœ¬è¾ƒæ–°æ—¶ä¼šæ˜¾ç¤ºæ— æ³•æ‰“å¼€æºæ–‡ä»¶å¯åœ¨è°ƒè¯•/å±æ€§/ï¼ˆc/c++ï¼‰/å¸¸è§„/é™„åŠ åŒ…å«ç›®å½•ååŠ ä¸Š$(ProjectDir)
+//ç„¶åå°†ï¼ˆc/c++ï¼‰å†…çš„é¢„ç¼–è¯‘å¤´/é¢„ç¼–è¯‘å¤´æ”¹ä¸ºï¼šä¸ä½¿ç”¨é¢„ç¼–è¯‘å¤´ï¼Œç„¶åå°†#includ "stdafx.h"å»æ‰ã€‚
 #include <iostream>
 #include <iomanip>
 using namespace std;
 typedef char ElemType;
 typedef struct LNode
 
-//µ¥Á´±íµÄ´æ´¢½á¹¹¶¨Òå
+//å•é“¾è¡¨çš„å­˜å‚¨ç»“æ„å®šä¹‰
 {
-    ElemType data;//Êı¾İÓò
-    struct LNode *next;//Ö¸ÕëÓò
+    ElemType data;//æ•°æ®åŸŸ
+    struct LNode *next;//æŒ‡é’ˆåŸŸ
 }LNode, * Linklist;
 
 
-Linklist create_L(int n)//ÄæĞò´´½¨µ¥Á´±í
+Linklist create_L(int n)//é€†åºåˆ›å»ºå•é“¾è¡¨
 {
     Linklist L, p;
     int i;
@@ -23,9 +23,9 @@ Linklist create_L(int n)//ÄæĞò´´½¨µ¥Á´±í
     for (i = n; i > 0; --i)
     {
         p = new LNode;
-        cin >> p->data;//Êä³öÊı¾İ·ÅÔÚ½ÚµãÖ¸ÕëpµÄÊı¾İÓò
-        p->next = L->next;//½«Ö¸ÕëpËùÖ¸½Úµã²åµ½L½ÚµãµÄºóÃæ
-        L->next = p;//½«Ö¸ÕëpËùÖ¸½Úµã²åµ½L½ÚµãºóÃæ
+        cin >> p->data;//è¾“å…¥æ•°æ®æ”¾åœ¨èŠ‚ç‚¹æŒ‡é’ˆpçš„æ•°æ®åŸŸ
+        p->next = L->next;//å°†æŒ‡é’ˆpæ‰€æŒ‡èŠ‚ç‚¹æ’åˆ°LèŠ‚ç‚¹çš„åé¢
+        L->next = p;//å°†æŒ‡é’ˆpæ‰€æŒ‡èŠ‚ç‚¹æ’åˆ°LèŠ‚ç‚¹åé¢
     }
     return(L);
 
@@ -40,7 +40,7 @@ void print_L(Linklist L)
     {
         cout << setw(3) <<p->data;
 
-        p = p->next;//Ö¸ÕëpºóÒÆÒ»¸ö½Úµã
+        p = p->next;//æŒ‡é’ˆpåç§»ä¸€ä¸ªèŠ‚ç‚¹
     }
     cout << endl;
 }
@@ -51,16 +51,16 @@ int ListInsert_L(Linklist L, int i, ElemType x)
     Linklist p, s;
     int j;
     p = L; j = 0;
-    while(p&&j<i-1)//Ñ°ÕÒµØi-1¸ö½Úµã
+    while(p&&j<i-1)//å¯»æ‰¾åœ°i-1ä¸ªèŠ‚ç‚¹
     {
         p = p->next; ++j;
     }
     if (!p || j > i - 1)
-        return 0; //iĞ¡ÓÚ»ò´óÓÚ±í³¤£¬Ôò·µ»Ø
-    s = new LNode; //Éú³ÉĞÂµÄÊı¾İÓò
-    s->data = x;//½«Êı¾İx·Åµ½sµÄÊı¾İÓò
-    s->next = p->next;//ÔÚ½ÚµãpºóÃæ²åÈë½Úµãs
-    p->next = s;//ÔÚ½ÚµãpºóÃæ²åÈë½Úµãs
+        return 0; //iå°äºæˆ–å¤§äºè¡¨é•¿ï¼Œåˆ™è¿”å›
+    s = new LNode; //ç”Ÿæˆæ–°çš„æ•°æ®åŸŸ
+    s->data = x;//å°†æ•°æ®xæ”¾åˆ°sçš„æ•°æ®åŸŸ
+    s->next = p->next;//åœ¨èŠ‚ç‚¹påé¢æ’å…¥èŠ‚ç‚¹s
+    p->next = s;//åœ¨èŠ‚ç‚¹påé¢æ’å…¥èŠ‚ç‚¹s
     return 1;
 }
 
@@ -69,7 +69,7 @@ void ListDelete_X(Linklist L, ElemType x)
 {
     Linklist p,q;
     p = L;
-    q = p->next;//ÒÆ¶¯Ö¸Õëqµ½ºóÒ»¸ö½Úµã
+    q = p->next;//ç§»åŠ¨æŒ‡é’ˆqåˆ°åä¸€ä¸ªèŠ‚ç‚¹
     while (q && q->data != x)
     {
         p = q;
@@ -78,7 +78,7 @@ void ListDelete_X(Linklist L, ElemType x)
     if (q)
     {
         p->next = q->next;
-        delete(q);//É¾³ıqËùÖ¸ÏòµÄ½Úµã
+        delete(q);//åˆ é™¤qæ‰€æŒ‡å‘çš„èŠ‚ç‚¹
     }
     else cout << x << "does not exist!" << endl;
 }
@@ -105,22 +105,22 @@ int main()
     ElemType x;
     Linklist L;
     cout << "Please enter the length of the created linear table n. \ninput n:";
-    cin >> n; //ÊäÈëÏßĞÔ±íÖĞÔªËØµÄ¸öÊı
-    L = create_L(n); //°´ÄæÎ»Ğò´´½¨ÏßĞÔ±í L
-    print_L(L); //´òÓ¡ÏßĞÔ±í L
-    cout << "Enter the position I to insert and the number x to insert \ninput i,x:"; //ÊäÈëÒª²åÈëµÄÎ»ÖÃ i ºÍÒª²åÈëµÄÊı x
+    cin >> n; //è¾“å…¥çº¿æ€§è¡¨ä¸­å…ƒç´ çš„ä¸ªæ•°
+    L = create_L(n); //æŒ‰é€†ä½åºåˆ›å»ºçº¿æ€§è¡¨ L
+    print_L(L); //æ‰“å°çº¿æ€§è¡¨ L
+    cout << "Enter the position I to insert and the number x to insert \ninput i,x:"; //è¾“å…¥è¦æ’å…¥çš„ä½ç½® i å’Œè¦æ’å…¥çš„æ•° x
     cin >> i >> x;
-    ListInsert_L(L, i, x);//½« x ²åÈëÔÚ L µÄµÚ i ¸öÎ»ÖÃ
+    ListInsert_L(L, i, x);//å°† x æ’å…¥åœ¨ L çš„ç¬¬ i ä¸ªä½ç½®
     print_L(L);
     cout << "Enter the number x to delete \ninput x:";
-    cin >> x; //ÊäÈëÒªÉ¾³ıµÄÊı x
-    ListDelete_X(L, x); //ÔÚÏßĞÔ±í L ÖĞÉ¾³ıµÚÒ»¸öÖµÎª x µÄ½áµã
+    cin >> x; //è¾“å…¥è¦åˆ é™¤çš„æ•° x
+    ListDelete_X(L, x); //åœ¨çº¿æ€§è¡¨ L ä¸­åˆ é™¤ç¬¬ä¸€ä¸ªå€¼ä¸º x çš„ç»“ç‚¹
     print_L(L);
 
-    //´òÓ¡É¾³ıºóµÄÏßĞÔ±í
-    cout << "Enter the number x to find \ninput x:"; //ÊäÈëÒª²éÕÒµÄÊı x
+    //æ‰“å°åˆ é™¤åçš„çº¿æ€§è¡¨
+    cout << "Enter the number x to find \ninput x:"; //è¾“å…¥è¦æŸ¥æ‰¾çš„æ•° x
     cin >> x;
-    i = Locate_X(L, x); //²éÕÒ x ÔÚ L ÖĞµÄÎ»ÖÃ i
+    i = Locate_X(L, x); //æŸ¥æ‰¾ x åœ¨ L ä¸­çš„ä½ç½® i
     cout << "\nposition of " << x << " is " << i << endl;
     return 0;
 }
