@@ -1,3 +1,5 @@
+//这里的#include "stdafx.h"当vs版本较新时会显示无法打开源文件可在调试/属性/（c/c++）/常规/附加包含目录后加上$(ProjectDir)
+//然后将（c/c++）内的预编译头/预编译头改为：不使用预编译头，然后将#includ "stdafx.h"去掉。
 #include <iostream>
 #include <iomanip>
 using namespace std;
